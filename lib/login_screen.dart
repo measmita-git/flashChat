@@ -1,8 +1,7 @@
-import 'dart:math';
+import 'package:flash_chat/chat_screen.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'components/rounded_button.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id = 'login_screen';
@@ -17,79 +16,78 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Container(
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              height: 200.0,
-              width: 200.0,
-              color: Colors.white,
-              // padding: EdgeInsets.all(8.0),
-              // margin: EdgeInsets.only(left: 8.0, right: 8.0),
-              child: Image.asset('assets/reload.png'),
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Hero(
+              tag: 'reload',
+              child: Container(
+                height: 200.0,
+                child: Image.asset('assets/reload.png'),
+              ),
             ),
             SizedBox(
-              height: 20.0,
+              height: 48.0,
             ),
-            Container(
-              padding: EdgeInsets.all(6.0),
-              margin: EdgeInsets.only(left: 30.0, right: 30.0),
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 230, 222, 222),
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: "Enter your email address",
-                  hintStyle: TextStyle(
-                    color: Colors.black,
-                  ),
+            TextField(
+              onChanged: (value) {
+                //Do something with the user input.
+              },
+              decoration: InputDecoration(
+                hintText: 'Enter your email',
+                hintStyle: TextStyle(color: Colors.black),
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
-              ),
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            Container(
-              padding: EdgeInsets.all(10.0),
-              margin: EdgeInsets.only(left: 30.0, right: 30.0),
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 230, 222, 222),
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: "Password",
-                  hintStyle: TextStyle(
-                    color: Colors.black,
-                  ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blueAccent, width: 1.0),
+                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blueAccent, width: 2.0),
+                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
               ),
             ),
             SizedBox(
-              height: 20.0,
+              height: 8.0,
             ),
-            Container(
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 230, 222, 222),
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromARGB(255, 241, 188, 12),
-                  elevation: 80.0,
-                  padding: EdgeInsets.only(left: 130.0, right: 140.0),
-                  minimumSize: Size(100, 60),
+            TextField(
+              onChanged: (value) {
+                //Do something with the user input.
+              },
+              decoration: InputDecoration(
+                hintText: 'Enter your password',
+                hintStyle: TextStyle(color: Colors.black),
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
-                onPressed: () {},
-                child: Text(
-                  "Login",
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blueAccent, width: 1.0),
+                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blueAccent, width: 2.0),
+                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
               ),
             ),
+            SizedBox(
+              height: 24.0,
+            ),
+            RoundedButton(
+                color: Colors.blueAccent,
+                title: "Login",
+                onPressed: () {
+                  Navigator.pushNamed(context, ChatScreen.id);
+                }),
           ],
         ),
       ),
