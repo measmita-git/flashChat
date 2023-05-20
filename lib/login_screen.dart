@@ -20,19 +20,20 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24.0),
+        padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Hero(
               tag: 'reload',
+              // ignore: sized_box_for_whitespace
               child: Container(
                 height: 200.0,
                 child: Image.asset('assets/reload.png'),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 48.0,
             ),
             TextField(
@@ -43,10 +44,10 @@ class _LoginScreenState extends State<LoginScreen> {
               },
               decoration: kTextFieldDecoration.copyWith(
                 hintText: "Enter your email address",
-                hintStyle: TextStyle(color: Colors.black),
+                hintStyle: const TextStyle(color: Colors.black),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8.0,
             ),
             TextField(
@@ -56,10 +57,10 @@ class _LoginScreenState extends State<LoginScreen> {
               },
               decoration: kTextFieldDecoration.copyWith(
                 hintText: "Enter your password",
-                hintStyle: TextStyle(color: Colors.black),
+                hintStyle: const TextStyle(color: Colors.black),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 24.0,
             ),
             RoundedButton(

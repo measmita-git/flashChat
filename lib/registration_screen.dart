@@ -8,6 +8,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 class RegistrationScreen extends StatefulWidget {
   static const String id = 'registration_screen';
 
+  const RegistrationScreen({super.key});
+
   @override
   State<RegistrationScreen> createState() => _RegistrationScreenState();
 }
@@ -33,7 +35,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 child: Image.asset('assets/reload.png'),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 48.0,
             ),
             TextField(
@@ -44,10 +46,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               },
               decoration: kTextFieldDecoration.copyWith(
                 hintText: "Enter your email address",
-                hintStyle: TextStyle(color: Colors.black),
+                hintStyle: const TextStyle(color: Colors.black),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8.0,
             ),
             TextField(
