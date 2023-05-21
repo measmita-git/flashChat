@@ -3,9 +3,20 @@ import 'package:flash_chat/login_screen.dart';
 import 'package:flash_chat/registration_screen.dart';
 import 'package:flash_chat/welcome_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: FirebaseOptions(
+      apiKey: 'AIzaSyCq_M5LPboKU6Q9jmp2lA_GqJ-znDF10B0',
+      appId: '1:510075343774:android:eb421f2b650d6b25ed7c8f',
+      messagingSenderId: '510075343774',
+      projectId: 'flash-chat-d05da',
+      databaseURL: 'YOUR_DATABASE_URL',
+    ),
+  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -15,10 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark().copyWith(
-          textTheme: TextTheme(
-        bodyText1: TextStyle(color: Colors.black54),
-      )),
+      debugShowCheckedModeBanner: false,
       initialRoute: WelcomeScreen.id,
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
