@@ -44,6 +44,14 @@ class _ChatScreenState extends State<ChatScreen> {
     }
   }
 
+  void messageStream() async {
+    await for (var snapshot in _firestore.collection('messages').snapshots()) {
+      for (var message in snapshot.docs) {
+        print(message.data);
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +61,7 @@ class _ChatScreenState extends State<ChatScreen> {
           IconButton(
               icon: Icon(Icons.close),
               onPressed: () {
-                getMessages();
+                messageStream();
                 // _auth.signOut();
                 // Navigator.pop(context);
               }),
@@ -66,6 +74,25 @@ class _ChatScreenState extends State<ChatScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            StreamBuilder(
+              stream: _firestore.collection('messages').snapshots(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  final messages = snapshot.data?.docs;
+                  List<Text> messageWidgets = [];
+                  for (var message in messages!) {
+                    final messageText = message.data;
+                    // Add the messageText to the messageWidgets list
+                    messageWidgets.add(Text('messages'));
+                  }
+                  // Return the widget tree using the messageWidgets list
+                  return ListView(children: messageWidgets);
+                } else {
+                  // Placeholder widget or loading indicator while data is being fetched
+                  return CircularProgressIndicator();
+                }
+              },
+            ),
             Container(
               decoration: kMessageContainerDecoration,
               child: Row(
