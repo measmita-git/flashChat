@@ -4,6 +4,8 @@ import 'package:flash_chat/constants.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+final _firestore = FirebaseFirestore.instance;
+
 class ChatScreen extends StatefulWidget {
   @override
   _ChatScreenState createState() => _ChatScreenState();
@@ -12,7 +14,7 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final _auth = FirebaseAuth.instance;
-  final _firestore = FirebaseFirestore.instance;
+
   late String email;
   late String password;
   late User loggedInUser;
@@ -74,25 +76,6 @@ class _ChatScreenState extends State<ChatScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            StreamBuilder(
-              stream: _firestore.collection('messages').snapshots(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  final messages = snapshot.data?.docs;
-                  List<Text> messageWidgets = [];
-                  for (var message in messages!) {
-                    final messageText = message.data;
-                    // Add the messageText to the messageWidgets list
-                    messageWidgets.add(Text('messages'));
-                  }
-                  // Return the widget tree using the messageWidgets list
-                  return ListView(children: messageWidgets);
-                } else {
-                  // Placeholder widget or loading indicator while data is being fetched
-                  return CircularProgressIndicator();
-                }
-              },
-            ),
             Container(
               decoration: kMessageContainerDecoration,
               child: Row(
@@ -108,7 +91,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                   TextButton(
                     onPressed: () {
-                      _firestore.collection(messageText).add({
+                      _firestore.collection('messages').add({
                         'text': messageText,
                         'sender': loggedInUser.email,
                       });
