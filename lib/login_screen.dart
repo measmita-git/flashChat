@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'components/rounded_button.dart';
 
+late User loggedInUser;
+
 class LoginScreen extends StatefulWidget {
   static const String id = 'login_screen';
   const LoginScreen({super.key});
@@ -18,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _auth = FirebaseAuth.instance;
   late String email;
   late String password;
-  late User loggedInUser;
+
   bool showSpinner = false;
   @override
   Widget build(BuildContext context) {

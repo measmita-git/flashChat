@@ -32,11 +32,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Hero(
-                tag: 'reload',
-                child: Container(
-                  height: 200.0,
-                  child: Image.asset('assets/reload.png'),
+              Flexible(
+                child: Hero(
+                  tag: 'reload',
+                  child: Container(
+                    height: 200.0,
+                    child: Image.asset('assets/reload.png'),
+                  ),
                 ),
               ),
               const SizedBox(
