@@ -4,12 +4,17 @@ import 'package:flash_chat/registration_screen.dart';
 import 'package:flash_chat/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
+  await dotenv.load(fileName: ".env");
   WidgetsFlutterBinding.ensureInitialized();
+
+  String apiKey = dotenv.env['API_KEY'] ?? 'DEFAULT_API_KEY';
+
   await Firebase.initializeApp(
     options: FirebaseOptions(
-      apiKey: 'AIzaSyCq_M5LPboKU6Q9jmp2lA_GqJ-znDF10B0',
+      apiKey: apiKey,
       appId: '1:510075343774:android:eb421f2b650d6b25ed7c8f',
       messagingSenderId: '510075343774',
       projectId: 'flash-chat-d05da',
@@ -20,7 +25,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key});
 
   // This widget is the root of your application.
   @override

@@ -1,0 +1,24 @@
+2023/05/24-20:12:05.917 22e8 Reusing MANIFEST C:\Users\Asmita\AppData\Local\Temp\flutter_tools.aad77ba7\flutter_tools_chrome_device.c4305fe\Default\IndexedDB\http_localhost_52477.indexeddb.leveldb/MANIFEST-000001
+2023/05/24-20:12:05.917 22e8 Recovering log #4
+2023/05/24-20:12:05.917 22e8 Reusing old log C:\Users\Asmita\AppData\Local\Temp\flutter_tools.aad77ba7\flutter_tools_chrome_device.c4305fe\Default\IndexedDB\http_localhost_52477.indexeddb.leveldb/000004.log 
+2023/05/24-20:12:05.923 4270 Level-0 table #8: started
+2023/05/24-20:12:05.926 4270 Level-0 table #8: 4646 bytes OK
+2023/05/24-20:12:05.931 4270 Delete type=0 #4
+2023/05/24-20:12:05.931 4270 Manual compaction at level-0 from '\x00\x04\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x05\x00\x00\x00' @ 0 : 0; will stop at (end)
+2023/05/24-20:12:11.057 4270 Level-0 table #10: started
+2023/05/24-20:12:11.060 4270 Level-0 table #10: 3293 bytes OK
+2023/05/24-20:12:11.064 4270 Delete type=0 #7
+2023/05/24-20:12:11.064 4270 Manual compaction at level-0 from '\x00\x05\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x06\x00\x00\x00' @ 0 : 0; will stop at '\x00\x05\x00\x00\x05' @ 202 : 1
+2023/05/24-20:12:11.064 4270 Compacting 1@0 + 1@1 files
+2023/05/24-20:12:11.066 4270 Generated table #11@0: 68 keys, 3247 bytes
+2023/05/24-20:12:11.066 4270 Compacted 1@0 + 1@1 files => 3247 bytes
+2023/05/24-20:12:11.068 4270 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/05/24-20:12:11.069 4270 Delete type=2 #10
+2023/05/24-20:12:11.069 22e8 Manual compaction at level-0 from '\x00\x05\x00\x00\x05' @ 202 : 1 .. '\x00\x06\x00\x00\x00' @ 0 : 0; will stop at (end)
+2023/05/24-20:12:50.273 17e4 Compacting 1@1 + 1@2 files
+2023/05/24-20:12:50.275 17e4 Generated table #12@1: 41 keys, 2990 bytes
+2023/05/24-20:12:50.275 17e4 Compacted 1@1 + 1@2 files => 2990 bytes
+2023/05/24-20:12:50.277 17e4 compacted to: files[ 0 0 1 0 0 0 0 ]
+2023/05/24-20:12:50.277 17e4 Delete type=2 #5
+2023/05/24-20:12:50.277 17e4 Delete type=2 #8
+2023/05/24-20:12:50.277 17e4 Delete type=2 #11
