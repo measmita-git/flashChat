@@ -108,7 +108,7 @@ class _ChatScreenState extends State<ChatScreen> {
 }
 
 class MessageStreams extends StatelessWidget {
-  const MessageStreams({super.key});
+  const MessageStreams({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -122,7 +122,7 @@ class MessageStreams extends StatelessWidget {
             ),
           );
         }
-        final messages = snapshot.data?.docs.reversed;
+        final messages = snapshot.data?.docs.reversed.toList();
         List<MessageBubble> messageBubbles = [];
         for (var message in messages!) {
           final messageText = message.data()['text'] ?? '';
@@ -136,6 +136,7 @@ class MessageStreams extends StatelessWidget {
             text: messageText,
             isMe: currentUser == messageSender,
           );
+
           messageBubbles.add(messageBubble);
         }
         return Expanded(
@@ -151,6 +152,7 @@ class MessageStreams extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class MessageBubble extends StatelessWidget {
   MessageBubble({required this.sender, required this.text, required this.isMe});
   late String sender;
