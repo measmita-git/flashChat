@@ -1,7 +1,7 @@
 import 'package:flash_chat/chat_screen.dart';
 import 'package:flash_chat/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'components/rounded_button.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:firebase_auth/firebase_auth.dart';
@@ -82,9 +82,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       final newUser =
                           await _auth.createUserWithEmailAndPassword(
                               email: email, password: password);
-                      if (newUser != null) {
-                        Navigator.pushNamed(context, ChatScreen.id);
-                      }
+                      Navigator.pushNamed(context, ChatScreen.id);
                       setState(() {
                         showSpinner = false;
                       });
